@@ -6,22 +6,39 @@
   </head>
   <body>
     <a-scene>
+      <!-- Camera -->
+      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls></a-entity>
 
-      <a-plane position="7.5 0 0" rotation="-90 0 0" width="15" height="10" color="#7BC8A4"></a-plane> <!-- floor -->
-      <a-plane position="15 1.5 0" rotation="0 -90 0" width="10" height="3" color="#7BC8A4"></a-plane> <!-- back wall -->
-      <a-plane position="7.5 1.5 -5" rotation="0 0 0" width="15" height="3" color="#7BC8A4"></a-plane> <!-- left wall -->
-      <a-plane position="7.5 1.5 5" rotation="0 180 0" width="15" height="3" color="#7BC8A4"></a-plane> <!-- right wall -->
-      <a-sky color="#ECECEC"></a-sky>
+      <!-- Room -->
+      <a-plane position="7.5 0 0" rotation="-90 0 0" width="15" height="10" color="blue"></a-plane> <!-- floor -->
+      <a-plane position="7.5 3 0" rotation="90 0 0" width="15" height="10" color="pink"></a-plane> <!-- ceiling -->
+      <a-plane position="15 1.5 0" rotation="0 -90 0" width="10" height="3" color="green"></a-plane> <!-- back wall -->
+      <a-plane position="7.5 1.5 -5" rotation="0 0 0" width="15" height="3" color="yellow"></a-plane> <!-- left wall -->
+      <a-plane position="7.5 1.5 5" rotation="0 180 0" width="15" height="3" color="grey"></a-plane> <!-- right wall -->
+      <a-sky color="black"></a-sky>
 
-        <a-entity look-controls wasd-controls position="2 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls></a-entity>
+      <!-- Lighting -->
+      <a-entity light="type: ambient; color: #BBB"></a-entity>
+      <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 2.5 0"></a-entity>
+        
 
-      <a-assets>
-        <a-asset-item id="woman-sitting-obj" src="/beautiful-woman-15.obj"></a-asset-item>
-        <a-asset-item id="lamborghini-aventador-obj" src="/lamborghini-aventador-pbribl.obj"></a-asset-item>
-      </a-assets>
-      <a-obj-model position="2.5 0 0" rotation="0 -70 0" src="#woman-sitting-obj" mtl="#crate-mtl"></a-obj-model>
-      <a-obj-model position="4.5 0 2" rotation="0 -120 0" src="#woman-sitting-obj" mtl="#crate-mtl"></a-obj-model>
-      <a-obj-model position="12 0 -2" rotation="0 -120 0" src="#lamborghini-aventador-obj" mtl="#crate-mtl"></a-obj-model> 
+      <!-- boxes -->
+      <a-box color="tomato" position="12 .5 3" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="10 .5 -2" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="11 .5 1" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="9 .5 4" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="10 .5 -4" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="7 .5 3" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="7 .5 -2" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="5 .5 -4" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="8 .5 -.25" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="5 .5 0" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="5 .5 3.5" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="6.5 .5 1" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="3.5 .5 4.5" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="3.5 .5 -3.5" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="4.5 .5 -1.65" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="4.3 .5 1.55" depth="1" height="1" width="1"></a-box>
 
     </a-scene>
   </body>

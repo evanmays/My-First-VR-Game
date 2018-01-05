@@ -1,1 +1,0 @@
-setInterval(function(){ $("#cylinder").attr("height", 4) }, 3000);

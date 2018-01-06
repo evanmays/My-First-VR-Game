@@ -7,7 +7,11 @@
   <body>
     <a-scene>
       <!-- Camera -->
-      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls></a-entity>
+      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls>
+        <!-- Heads Up Display -->
+        <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+          material="color: gray; opacity: 0.5"></a-entity>
+      </a-entity>
 
       <!-- Room -->
       <a-plane position="7.5 0 0" rotation="-90 0 0" width="15" height="10" color="blue"></a-plane> <!-- floor -->
@@ -22,23 +26,40 @@
       <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 2.5 0"></a-entity>
         
 
-      <!-- boxes -->
-      <a-box color="tomato" position="12 .5 3" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="10 .5 -2" depth="1" height="1" width="1"></a-box>
+      <!-- Scoreboard -->
+      <a-plane position="2 2 -3" rotation="20 -20 0" width="1.572" height=".908" color="blue">
+        <a-text value="Casualties: 20\nGood hits: 3" align="center" height="20"></a-text>
+      </a-plane>
+
+      <!-- boxes and characters behind them-->
+      <a-box color="tomato" position="12 .5 3" depth="1" height="1" width="1">
+        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      </a-box>
+      <a-box color="tomato" position="10 .5 -2" depth="1" height="1" width="1">
+        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      </a-box>
       <a-box color="tomato" position="11 .5 1" depth="1" height="1" width="1"></a-box>
       <a-box color="tomato" position="9 .5 4" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="10 .5 -4" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="10 .5 -4" depth="1" height="1" width="1">
+        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      </a-box>
       <a-box color="tomato" position="7 .5 3" depth="1" height="1" width="1"></a-box>
       <a-box color="tomato" position="7 .5 -2" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="5 .5 -4" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="5 .5 -4" depth="1" height="1" width="1">
+        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      </a-box>
       <a-box color="tomato" position="8 .5 -.25" depth="1" height="1" width="1"></a-box>
       <a-box color="tomato" position="5 .5 0" depth="1" height="1" width="1"></a-box>
       <a-box color="tomato" position="5 .5 3.5" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="6.5 .5 1" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="6.5 .5 1" depth="1" height="1" width="1">
+        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      </a-box>
       <a-box color="tomato" position="3.5 .5 4.5" depth="1" height="1" width="1"></a-box>
       <a-box color="tomato" position="3.5 .5 -3.5" depth="1" height="1" width="1"></a-box>
       <a-box color="tomato" position="4.5 .5 -1.65" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="4.3 .5 1.55" depth="1" height="1" width="1"></a-box>
+      <a-box color="tomato" position="4.3 .5 1.55" depth="1" height="1" width="1">
+        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      </a-box>
 
     </a-scene>
   </body>

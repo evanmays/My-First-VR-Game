@@ -74,14 +74,14 @@ function startGame(iteration) {
     }, 5000);
 }
 
-rayCollidingWith = "";
+rayCollidingWith = null;
 
 
 AFRAME.registerComponent('raycaster-listener', {
   init: function () {
-    this.el.addEventListener('raycaster-intersected', function (el) {
-      console.log("TV was hit by Ray");
-      console.log(el);
+    this.el.addEventListener('raycaster-intersected', function (e) {
+      console.log(e.detail.target == this) //true
+      rayCollidingWith = this;
     });
   }
 });
@@ -89,7 +89,12 @@ AFRAME.registerComponent('raycaster-listener', {
 function shoot() {
 	//show hud popup
 	//when hud popup in position check the raycast
+	raycasterShoot();
 }
 function raycasterShoot(){
-
+	if (rayCollidingWith != null) {
+		//deletes the enemy/friend
+		$(rayCollidingWith).attr("visible", "false");
+		$(rayCollidingWith).removeClass("collidable");
+	}
 }

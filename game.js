@@ -185,7 +185,7 @@ function raycasterShoot(){
 //WebRTC Connection Functions between computer and phone
 function initComputerController() {
 	var peer = new Peer("computer321321221321321312", {
-		key: "hm40p5ejcreh4cxr"
+		key: "lwjd5qra8257b9"
 	});
 	var conn = peer.connect('phone321232321223232112354352');
 	conn.on('open', function() {
@@ -196,7 +196,7 @@ function initComputerController() {
 
 function initPhoneVRviewer() {
 	var peer = new Peer("phone321232321223232112354352", {
-		key: "hm40p5ejcreh4cxr"
+		key: "lwjd5qra8257b9"
 	});
 	console.log(peer)
 	peer.on('connection', function(conn) { 

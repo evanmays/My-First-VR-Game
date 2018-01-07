@@ -42,7 +42,7 @@ function initiateForPhoneOnlyOrMultipleDevices() {
 			shootButtonPressed();
 		}, false);
 	}
-	else if (gameMode == multpleDevices) {
+	else if (gameMode == "multpleDevices") {
 		$(window).keypress(function(e) {
 			if (e.keyCode == 32) {
 				shootButtonPressed();
@@ -182,16 +182,10 @@ function raycasterShoot(){
 
 
 
-//WebRTC Connection between computer and phone
-initPhoneVRviewer();
-initComputerController();
-
-
-
-
+//WebRTC Connection Functions between computer and phone
 function initComputerController() {
 	var peer = new Peer("computer321321221321321312", {
-		key: "lwjd5qra8257b9"
+		key: "hm40p5ejcreh4cxr"
 	});
 	var conn = peer.connect('phone321232321223232112354352');
 	conn.on('open', function() {
@@ -202,11 +196,11 @@ function initComputerController() {
 
 function initPhoneVRviewer() {
 	var peer = new Peer("phone321232321223232112354352", {
-		key: "lwjd5qra8257b9"
+		key: "hm40p5ejcreh4cxr"
 	});
 	console.log(peer)
 	peer.on('connection', function(conn) { 
-		console.log("Phonei s connected to computer")
+		console.log("Phone is connected to computer")
 		conn.on('data', function(data) {
 			if (data == "shoot") {
 				console.log("A shot was made.")

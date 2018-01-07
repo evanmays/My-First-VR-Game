@@ -20,14 +20,22 @@ function playMultipleDevice(thisDevice){
 	currDevice = thisDevice;
 	
 	if (currDevice == "phone") {
+		//show message telling user to connect computer
+		//once connected, add aframe to phone's browser
+		alert("phone")
+		initPhoneVRviewer();
 		$(function() {
+			$("body").innerHTML="";
 			$("body").load("/game.html",function(){
-			    $(this).clone().appendTo("body").remove();
+			    console.log("Game loaded in");
 			});
 		});
 	}
 	else if (currDevice == "computer") {
-		//show message telling user to press spacebar to shoot
+		alert("computer")
+		//show message telling user to connect phone
+		//once connected, show message telling user to press spacebar to shoot
+		initComputerController();
 	}
 	//initialize game
 	initiateForPhoneOnlyOrMultipleDevices();

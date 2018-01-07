@@ -12,11 +12,11 @@ function playOneDevice(){
 	});
 
 	//initialize game
-	initiateForPhoneOnlyOrMultipleDevices();
+	initiateForPhone();
 }
 
 function playMultipleDevice(thisDevice){
-	gameMode="multpleDevices";
+	gameMode="multipleDevices";
 	currDevice = thisDevice;
 	
 	if (currDevice == "phone") {
@@ -37,6 +37,4 @@ function playMultipleDevice(thisDevice){
 		//once connected, show message telling user to press spacebar to shoot
 		initComputerController();
 	}
-	//initialize game
-	initiateForPhoneOnlyOrMultipleDevices();
 }

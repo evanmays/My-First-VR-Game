@@ -7,7 +7,7 @@
   <body>
     <a-scene>
       <!-- Camera -->
-      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 0" look-controls>
+      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls>
         <!-- Heads Up Display -->
         <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
           material="color: gray; opacity: 0.5"></a-entity>
@@ -16,7 +16,7 @@
       <!-- Room -->
       <a-plane position="7.5 0 0" rotation="-90 0 0" width="15" height="10" color="blue"></a-plane> <!-- floor -->
       <a-plane position="7.5 3 0" rotation="90 0 0" width="15" height="10" color="pink"></a-plane> <!-- ceiling -->
-      <a-plane position="15 1.5 0" rotation="0 -90 0" width="10" height="3" color="green"></a-plane> <!-- back wall -->
+      <a-plane position="15 1.5 0" rotation="0 -90 0" width="10" height="3" color="purple"></a-plane> <!-- back wall -->
       <a-plane position="7.5 1.5 -5" rotation="0 0 0" width="15" height="3" color="yellow"></a-plane> <!-- left wall -->
       <a-plane position="7.5 1.5 5" rotation="0 180 0" width="15" height="3" color="grey"></a-plane> <!-- right wall -->
       <a-sky color="black"></a-sky>
@@ -36,39 +36,75 @@
       </a-plane>
 
       <!-- boxes and characters behind them-->
-      <a-box color="tomato" position="12 .5 3" depth="1" height="1" width="1">
-        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      <a-box id="box1" color="tomato" position="12 .5 3" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
       </a-box>
-      <a-box color="tomato" position="10 .5 -2" depth="1" height="1" width="1">
-        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      <a-box id="box2" color="tomato" position="10 .5 -2" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
       </a-box>
-      <a-box color="tomato" position="11 .5 1" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="9 .5 4" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="10 .5 -4" depth="1" height="1" width="1">
-        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      <a-box id="box3" color="tomato" position="11 .5 1" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
       </a-box>
-      <a-box color="tomato" position="7 .5 3" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="7 .5 -2" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="5 .5 -4" depth="1" height="1" width="1">
-        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      <a-box id="box4" color="tomato" position="9 .5 4" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
       </a-box>
-      <a-box color="tomato" position="8 .5 -.25" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="5 .5 0" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="5 .5 3.5" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="6.5 .5 1" depth="1" height="1" width="1">
-        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      <a-box id="box5" color="tomato" position="10 .5 -4" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
       </a-box>
-      <a-box color="tomato" position="3.5 .5 4.5" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="3.5 .5 -3.5" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="4.5 .5 -1.65" depth="1" height="1" width="1"></a-box>
-      <a-box color="tomato" position="4.3 .5 1.55" depth="1" height="1" width="1">
-        <a-plane position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="purple"></a-plane>
+      <a-box id="box6" color="tomato" position="7 .5 3" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box7" color="tomato" position="7 .5 -2" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box8" color="tomato" position="5 .5 -4" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box9" color="tomato" position="8 .5 -.25" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box10" color="tomato" position="5 .5 0" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box11" color="tomato" position="5 .5 3.5" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box12" color="tomato" position="6.5 .5 1" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box13" color="tomato" position="3.5 .5 4.5" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box14" color="tomato" position="3.5 .5 -3.5" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box15" color="tomato" position="4.5 .5 -1.65" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
+      </a-box>
+      <a-box id="box16" color="tomato" position="4.3 .5 1.55" depth="1" height="1" width="1">
+        <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
+        <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
       </a-box>
 
       <!-- Drones -->
-      <a-box color="tomato" position="6.5 2.7 1" depth=".4" height=".1" width=".4"></a-box>
-      <a-box color="tomato" position="8.2 2.8 -3" depth=".4" height=".1" width=".4"></a-box>
-      <a-box color="tomato" position="3 2.9 4" depth=".4" height=".1" width=".4"></a-box>
+      <a-box id="box17" color="tomato" position="6.5 2.7 1" depth=".4" height=".1" width=".4"></a-box>
+      <a-box id="box18" color="tomato" position="8.2 2.8 -3" depth=".4" height=".1" width=".4"></a-box>
+      <a-box id="box19" color="tomato" position="3 2.9 4" depth=".4" height=".1" width=".4"></a-box>
 
     </a-scene>
   </body>

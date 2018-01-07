@@ -74,21 +74,6 @@ function startGame(iteration) {
     }, 5000);
 }
 
-rayCollidingWith = null;
-
-
-AFRAME.registerComponent('raycaster-listener', {
-  init: function () {
-    this.el.addEventListener('raycaster-intersected', function (e) {
-      //console.log(e.detail.target == this) //true
-      rayCollidingWith = this;
-    });
-    this.el.addEventListener('raycaster-intersected-cleared', function (e) {
-      //console.log(e.detail.target == this) //true
-      rayCollidingWith = null;
-    });
-  }
-});
 
 AFRAME.registerComponent('crosshair', {
   init: function () {
@@ -109,9 +94,14 @@ function shoot() {
 	//This event checks the raycast and hides the crosshair
 }
 function raycasterShoot(){
-	if (rayCollidingWith != null) {
-		//deletes the enemy/friend
-		$(rayCollidingWith).attr("visible", "false");
-		$(rayCollidingWith).removeClass("collidable");
+	var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
+	firstintersection = raycasterEl.components.raycaster.intersectedEls[0];
+	if (!$(firstintersection).is("a-box")) {
+		//Hit a friendly/enemy
+		$(firstintersection).attr("visible", "false");
+		$(firstintersection).removeClass("collidable");
+	}
+	else {
+		//Hit a box
 	}
 }

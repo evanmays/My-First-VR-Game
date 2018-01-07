@@ -106,7 +106,7 @@ function shoot() {
 function raycasterShoot(){
 	var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
 	firstintersection = raycasterEl.components.raycaster.intersectedEls[0];
-	if (!$(firstintersection).is("a-box")) {
+	if (!$(firstintersection).is(".impenetrable")) {
 		//Hit a friendly/enemy
 		$(firstintersection).attr("visible", "false");
 		$(firstintersection).removeClass("collidable");

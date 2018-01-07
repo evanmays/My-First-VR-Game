@@ -80,16 +80,32 @@ rayCollidingWith = null;
 AFRAME.registerComponent('raycaster-listener', {
   init: function () {
     this.el.addEventListener('raycaster-intersected', function (e) {
-      console.log(e.detail.target == this) //true
+      //console.log(e.detail.target == this) //true
       rayCollidingWith = this;
+    });
+    this.el.addEventListener('raycaster-intersected-cleared', function (e) {
+      //console.log(e.detail.target == this) //true
+      rayCollidingWith = null;
+    });
+  }
+});
+
+AFRAME.registerComponent('crosshair', {
+  init: function () {
+    this.el.addEventListener('animationend', function (e) {
+    	if (e.target == $('#finalcrosshairanimation')[0]) {
+    		$(this).attr("visible", "false");
+    		raycasterShoot();
+    	}
     });
   }
 });
 
 function shoot() {
 	//show hud popup
-	//when hud popup in position check the raycast
-	raycasterShoot();
+	document.querySelector('#crosshair').emit('show');
+	//when hud popup in position a event is received by crosshair components
+	//This event checks the raycast and hides the crosshair
 }
 function raycasterShoot(){
 	if (rayCollidingWith != null) {

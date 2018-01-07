@@ -11,7 +11,13 @@
         <!-- Heads Up Display -->
         <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
           material="color: gray; opacity: 0.5"
-          raycaster="objects: .collidable"></a-entity>
+          raycaster="objects: .collidable"
+          id="crosshair"
+          crosshair
+          visible="false">
+            <a-animation attribute="position" begin="show" dur="900" from="0 -.1 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+            <a-animation attribute="visible" begin="show" dur="100" to="true"></a-animation>
+        </a-entity>
       </a-entity>
 
       <!-- Room -->

@@ -35,4 +35,26 @@ $(window).keypress(function(e) {
         }
 
     }
+    startGame();
 });
+
+var random_boolean;
+function startGame(iteration) {
+    //Display all the friendlies/enemies for this iteration
+
+    random_boolean = Math.random() >= 0.5;
+
+    for(var i = 0; i < 16; i++) {
+    	random_boolean = Math.random() >= 0.5;
+    	if (random_boolean) {
+    		showEnemy(i);
+    	}
+    	else {
+    		hideEnemy(i);
+    	}
+    }
+    //Run startGame again in a second.
+    setTimeout(function() {
+        startGame(iteration+1);
+    }, 1000);
+}

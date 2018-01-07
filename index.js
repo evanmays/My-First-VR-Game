@@ -104,6 +104,7 @@ AFRAME.registerComponent('crosshair', {
 function shoot() {
 	//show hud popup
 	document.querySelector('#crosshair').emit('show');
+	document.querySelector('#player').emit('playLaserSound');
 	//when hud popup in position a event is received by crosshair components
 	//This event checks the raycast and hides the crosshair
 }

@@ -7,7 +7,7 @@
   <body>
     <a-scene>
       <!-- Camera -->
-      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls>
+      <a-entity id="player" look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls sound="src: url(laser.mp3); on: playLaserSound; poolSize: 2">
         <!-- Heads Up Display -->
         <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
           material="color: gray; opacity: 0.5"
@@ -15,8 +15,8 @@
           id="crosshair"
           crosshair
           visible="false">
-            <a-animation attribute="position" begin="show" dur="900" from="0 -.1 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
-            <a-animation attribute="visible" begin="show" dur="100" to="true"></a-animation>
+            <a-animation attribute="position" begin="show" dur="775" from="0 -.1 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+            <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
         </a-entity>
       </a-entity>
 

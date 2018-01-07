@@ -24,6 +24,16 @@ function hideFriendly(box) {
 	$("#box"+box+" a-plane.friendly").removeClass("collidable");
 }
 
+score = {
+	friendlies: 0,
+	enemies: 0
+}
+
+function addToScoreboard(section, points) {
+	score[section] += points;
+	$("#scoreboard a-text").attr("value", "Friendly Hits: "+score.friendlies+"\nGood hits: "+score.enemies);
+}
+
 started = false;
 $(window).keypress(function(e) {
 	if(!started) {
@@ -110,6 +120,13 @@ function raycasterShoot(){
 		//Hit a friendly/enemy
 		$(firstintersection).attr("visible", "false");
 		$(firstintersection).removeClass("collidable");
+
+		if($(firstintersection).hasClass("friendly")){
+			addToScoreboard("friendlies", 1);
+		}
+		else if ($(firstintersection).hasClass("enemy")){
+			addToScoreboard("enemies", 1);
+		}
 	}
 	else {
 		//Hit a box

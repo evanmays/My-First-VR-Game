@@ -29,6 +29,15 @@ $(window).keypress(function(e) {
 	if(!started) {
 		//start game
 		startGame(0);
+		setTimeout(function() {
+		    document.querySelector('#box17').emit('fly');
+		}, 5000);
+		setTimeout(function() {
+		    document.querySelector('#box18').emit('fly');
+		}, 12000);
+		setTimeout(function() {
+		    document.querySelector('#box19').emit('fly');
+		}, 20000);
 		started=true;
 	}
 	else {
@@ -93,6 +102,7 @@ function shoot() {
 	//when hud popup in position a event is received by crosshair components
 	//This event checks the raycast and hides the crosshair
 }
+
 function raycasterShoot(){
 	var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
 	firstintersection = raycasterEl.components.raycaster.intersectedEls[0];

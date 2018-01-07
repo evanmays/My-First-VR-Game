@@ -7,17 +7,21 @@ function hideScoreboard() {
 
 function showEnemy(box) {
 	$("#box"+box+" a-plane.enemy").attr("visible", "true");
+	$("#box"+box+" a-plane.enemy").addClass("collidable");
 }
 function showFriendly(box) {
 	$("#box"+box+" a-plane.friendly").attr("visible", "true");
+	$("#box"+box+" a-plane.friendly").addClass("collidable");
 }
 
 function hideEnemy(box) {
 	$("#box"+box+" a-plane.enemy").attr("visible", "false");
+	$("#box"+box+" a-plane.enemy").removeClass("collidable");
 }
 
 function hideFriendly(box) {
 	$("#box"+box+" a-plane.friendly").attr("visible", "false");
+	$("#box"+box+" a-plane.friendly").removeClass("collidable");
 }
 
 started = false;
@@ -28,8 +32,8 @@ $(window).keypress(function(e) {
 		started=true;
 	}
 	else {
-		//shoot
-		
+		//shoot's the laser from character's eyes
+		shoot();
 	}
 });
 
@@ -61,7 +65,31 @@ function startGame(iteration) {
     	}
     }
 
+    //Set friendlies/enemies as raycastable
+    var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
+    raycasterEl.components.raycaster.refreshObjects();
+
     setTimeout(function() {
         startGame(iteration+1);
     }, 5000);
+}
+
+rayCollidingWith = "";
+
+
+AFRAME.registerComponent('raycaster-listener', {
+  init: function () {
+    this.el.addEventListener('raycaster-intersected', function (el) {
+      console.log("TV was hit by Ray");
+      console.log(el);
+    });
+  }
+});
+
+function shoot() {
+	//show hud popup
+	//when hud popup in position check the raycast
+}
+function raycasterShoot(){
+
 }

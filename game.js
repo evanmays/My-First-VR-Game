@@ -180,6 +180,8 @@ function initComputerController() {
 	$(window).keypress(function(e) {
 		if (e.keyCode == 32) {
 			socket.emit('computerShoot');
+			var audio = new Audio('laser.mp3');
+			audio.play();
 		}
 	});
 	

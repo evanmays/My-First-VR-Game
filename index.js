@@ -20,41 +20,48 @@ function hideFriendly(box) {
 	$("#box"+box+" a-plane.friendly").attr("visible", "false");
 }
 
-life = false;
+started = false;
 $(window).keypress(function(e) {
-    if (e.which === 32) {
-    	if (life == false) {
-    		hideScoreboard();
-    		life = true;
-    		showEnemy(3);
-    	}
-        else {
-        	showScoreboard();
-        	life = false;
-        	hideEnemy(3);
-        }
-
-    }
-    startGame();
+	if(!started) {
+		//start game
+		startGame(0);
+		started=true;
+	}
+	else {
+		//shoot
+		
+	}
 });
 
 var random_boolean;
+var random_boolean_1in20;
+
 function startGame(iteration) {
+	if (iteration == 0) {
+		hideScoreboard();
+	}
     //Display all the friendlies/enemies for this iteration
 
     random_boolean = Math.random() >= 0.5;
 
     for(var i = 0; i < 16; i++) {
-    	random_boolean = Math.random() >= 0.5;
+    	random_boolean = Math.random() >= 0.7;
+    	random_boolean_1in20 = Math.random() >= 0.95;
     	if (random_boolean) {
-    		showEnemy(i);
+    		if (random_boolean_1in20) {
+    			showFriendly(i);
+    		}
+    		else {
+    			showEnemy(i);
+    		}
     	}
     	else {
+    		hideFriendly(i);
     		hideEnemy(i);
     	}
     }
-    //Run startGame again in a second.
+
     setTimeout(function() {
         startGame(iteration+1);
-    }, 1000);
+    }, 5000);
 }

@@ -4,13 +4,11 @@ currDevice = "";
 function playOneDevice(){
 	gameMode="onePhone";
 	//add aframe to browser
-	$(function() {
-		$("body").innerHTML="";
-		$("body").load("/game.html",function(){
-		    console.log("Game loaded in");
-		});
+	$("body").innerHTML="";
+	$("body").load("/game.html",function(){
+		$("a-entity#player").attr("camera", "userHeight: 1.6");
+	    console.log("Game loaded in");
 	});
-
 	//initialize game
 	initiateForPhone();
 }
@@ -23,13 +21,14 @@ function playMultipleDevice(thisDevice){
 		//show message telling user to connect computer
 		//once connected, add aframe to phone's browser
 		alert("phone")
-		initPhoneVRviewer();
 		$(function() {
 			$("body").innerHTML="";
 			$("body").load("/game.html",function(){
+				$("a-entity#player").attr("camera", "userHeight: 0");
 			    console.log("Game loaded in");
 			});
 		});
+		initPhoneVRviewer();
 	}
 	else if (currDevice == "computer") {
 		alert("computer")

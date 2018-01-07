@@ -36,12 +36,10 @@ function addToScoreboard(section, points) {
 
 started = false;
 
-function initiateForPhone() {
-	if (gameMode == "onePhone") {
-		document.addEventListener('click', function(e){
-			shootButtonPressed();
-		}, false);
-	}
+function initiateForPhone() {	
+	document.addEventListener('click', function(e){
+		shootButtonPressed();
+	}, false);
 }
 
 

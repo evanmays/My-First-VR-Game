@@ -7,7 +7,7 @@
   <body>
     <a-scene>
       <!-- Camera -->
-      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 1.6" look-controls>
+      <a-entity look-controls wasd-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 0" look-controls>
         <!-- Heads Up Display -->
         <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
           material="color: gray; opacity: 0.5"></a-entity>
@@ -27,8 +27,12 @@
         
 
       <!-- Scoreboard -->
-      <a-plane position="2 2 -3" rotation="20 -20 0" width="1.572" height=".908" color="blue">
+      <a-plane id="scoreboard" position="2.75 2 0" rotation="20 -90 0" width="1.572" height=".908" color="blue">
         <a-text value="Friendly Hits: 20\nGood hits: 3" align="center" height="20"></a-text>
+        <a-animation attribute="position" begin="show" dur="800" to="2.75 2 0"></a-animation>
+        <a-animation attribute="rotation" begin="show" dur="800" to="20 -90 0"></a-animation>
+        <a-animation attribute="position" begin="hide" dur="800" to="2 2 -3"></a-animation>
+        <a-animation attribute="rotation" begin="hide" dur="800" to="20 -20 0"></a-animation>
       </a-plane>
 
       <!-- boxes and characters behind them-->

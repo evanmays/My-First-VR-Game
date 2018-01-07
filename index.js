@@ -157,3 +157,43 @@ function raycasterShoot(){
 		//Hit a box
 	}
 }
+
+
+
+
+
+
+
+
+//WebRTC Connection between computer and phone
+initPhoneVRviewer();
+initComputerController();
+
+
+
+
+function initComputerController() {
+	var peer = new Peer("computer321321221321321312", {
+		key: "lwjd5qra8257b9"
+	});
+	var conn = peer.connect('phone321232321223232112354352');
+	conn.on('open', function() {
+		console.log("Computer is connected to phone")
+		conn.send('shoot');
+	});
+}
+
+function initPhoneVRviewer() {
+	var peer = new Peer("phone321232321223232112354352", {
+		key: "lwjd5qra8257b9"
+	});
+	console.log(peer)
+	peer.on('connection', function(conn) { 
+		console.log("Phonei s connected to computer")
+		conn.on('data', function(data) {
+			if (data == "shoot") {
+				console.log("A shot was made.")
+			}
+		});
+	});
+}

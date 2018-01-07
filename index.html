@@ -4,6 +4,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
     <script src="/index.js"></script>
+    <script src="/game.js"></script>
   </head>
   <body>
     <h1>World's Hardest VR Game</h1>
@@ -18,13 +19,13 @@
       <p>Please open this page on your phone and computer</p>
       Which device are you currently?
       <ul >
-        <li>The phone</li>
-        <li>The computer</li>
+        <li onclick="playMultipleDevice('phone')">The phone</li>
+        <li onclick="playMultipleDevice('computer')">The computer</li>
       </ul>
     </div>
     <div class="oneDevice" style="display:none">
       <h2>You Selected 1 phone only</h2>
-      Tap here to enter the game.
+      <a onclick="playOneDevice();">Tap here to enter the game.</a>
     </div>
   </body>
 </html>

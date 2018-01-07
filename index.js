@@ -40,12 +40,37 @@ $(window).keypress(function(e) {
 		//start game
 		startGame(0);
 		setTimeout(function() {
+			random_boolean_1in20 = Math.random() >= 0.95;
+			if (random_boolean_1in20) {
+				$('#box17').attr("color", "red")
+				$('#box17').addClass("friendly")
+			}
+			else {
+				$('#box17').attr("color", "green")
+				$('#box17').addClass("enemy")
+			}
 		    document.querySelector('#box17').emit('fly');
 		}, 5000);
 		setTimeout(function() {
+			if (random_boolean_1in20) {
+				$('#box18').attr("color", "red")
+				$('#box18').addClass("friendly")
+			}
+			else {
+				$('#box18').attr("color", "green")
+				$('#box18').addClass("enemy")
+			}
 		    document.querySelector('#box18').emit('fly');
 		}, 12000);
 		setTimeout(function() {
+			if (random_boolean_1in20) {
+				$('#box19').attr("color", "red")
+				$('#box19').addClass("friendly")
+			}
+			else {
+				$('#box19').attr("color", "green")
+				$('#box19').addClass("enemy")
+			}
 		    document.querySelector('#box19').emit('fly');
 		}, 20000);
 		started=true;

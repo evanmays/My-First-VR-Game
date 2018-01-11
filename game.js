@@ -172,7 +172,7 @@ function raycasterShoot(){
 
 
 
-var socket = io('http://192.168.1.6:3000', {transports: ['websocket']});
+var socket = io('http://172.29.6.82:3000', {transports: ['websocket']});
 
 function initComputerController() {
 	$(window).keypress(function(e) {

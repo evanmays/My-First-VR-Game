@@ -47,11 +47,22 @@
     rotation="90 0 0" width="15" height="10" material="shader: flat; color: white"></a-plane> <!-- ceiling -->
   <a-plane class="collidable impenetrable" position="15 1.5 0"
     rotation="0 -90 0" width="10" height="3"  material="shader: flat; color: white"></a-plane> <!-- back wall -->
+  <a-box color="#3498db" depth="10" height="0.5" width="0.5" position="14.75 0 0" rotation="0 0 90"></a-box>
+  <a-box color="#3498db" depth="10" height="0.5" width="0.5" position="14.75 2.75 0" rotation="0 0 90"></a-box>
+
   <a-plane class="collidable impenetrable" position="7.5 1.5 -5"
     rotation="0 0 0" width="15" height="3"  material="shader: flat; color: white"></a-plane> <!-- left wall -->
+  <a-box color="#3498db" depth="15" height="0.5" width="0.5" position="7.5 0 4.75" rotation="0 90 90"></a-box>
+  <a-box color="#3498db" depth="15" height="0.5" width="0.5" position="7.5 2.75 4.75" rotation="0 90 90"></a-box>
+
   <a-plane class="collidable impenetrable" position="7.5 1.5 5"
     rotation="0 180 0" width="15" height="3" material="shader: flat; color: white"></a-plane> <!-- right wall -->
+  <a-box color="#3498db" depth="15" height="0.5" width="0.5" position="7.5 0 -4.75" rotation="0 90 90"></a-box>
+  <a-box color="#3498db" depth="15" height="0.5" width="0.5" position="7.5 2.75 -4.75" rotation="0 90 90"></a-box>
+
   <a-sky color="white"></a-sky>
+  <a-box color="#3498db" depth="10" height="0.5" width="0.5" position=".25 0 0" rotation="0 0 90"></a-box>
+  <a-box color="#3498db" depth="10" height="0.5" width="0.5" position=".25 2.75 0" rotation="0 0 90"></a-box>
 
   <!-- Lighting -->
   <a-entity light="type: ambient; color: #BBB"></a-entity>

@@ -3,12 +3,39 @@
   <a-entity id="player" look-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 0" look-controls sound="src: url(laser.mp3); on: playLaserSound; poolSize: 2">
     <!-- Heads Up Display -->
     <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
-      material="color: gray; opacity: 0.5"
+      material="color: red; opacity: 0.5"
       raycaster="objects: .collidable"
-      id="crosshair"
+      id="crosshair1"
       crosshair
       visible="false">
         <a-animation attribute="position" begin="show" dur="775" from="0 -.1 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
+    </a-entity>
+    <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+      material="color: red; opacity: 0.5"
+      raycaster="objects: .collidable"
+      id="crosshair2"
+      crosshair
+      visible="false">
+        <a-animation attribute="position" begin="show" dur="775" from="0 .1 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
+    </a-entity>
+    <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+      material="color: red; opacity: 0.5"
+      raycaster="objects: .collidable"
+      id="crosshair3"
+      crosshair
+      visible="false">
+        <a-animation attribute="position" begin="show" dur="775" from=".1 0 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
+    </a-entity>
+    <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+      material="color: red; opacity: 0.5"
+      raycaster="objects: .collidable"
+      id="crosshair4"
+      crosshair
+      visible="false">
+        <a-animation attribute="position" begin="show" dur="775" from="-.1 0 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
         <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
     </a-entity>
   </a-entity>
@@ -41,7 +68,7 @@
   </a-plane>
 
   <!-- boxes and characters behind them-->
-  <a-box id="box1" src="crate.jpg" class="collidable impenetrable" position="12 .5 3" depth="1" height="1" width="1">
+  <a-box id="box1" class="collidable impenetrable" src="crate.jpg" position="12 .5 3" depth="1" height="1" width="1">
     <a-plane class="enemy" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="green" visible="false"></a-plane>
     <a-plane class="friendly" position=".75 .65 0" rotation="0 -90 0" width=".4" height="2.1" color="red" visible="false"></a-plane>
   </a-box>

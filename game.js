@@ -134,7 +134,9 @@ AFRAME.registerComponent('crosshair', {
     this.el.addEventListener('animationend', function (e) {
     	if (e.target.id == 'finalcrosshairanimation') {
     		$(this).attr("visible", "false");
-    		raycasterShoot();
+    		if ($(this).attr('id') == "crosshair1") {
+    			raycasterShoot();
+    		}
     	}
     });
   }

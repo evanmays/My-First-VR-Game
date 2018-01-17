@@ -132,7 +132,7 @@ function startGame(iteration) {
 AFRAME.registerComponent('crosshair', {
   init: function () {
     this.el.addEventListener('animationend', function (e) {
-    	if (e.target == $('#finalcrosshairanimation')[0]) {
+    	if (e.target.id == 'finalcrosshairanimation') {
     		$(this).attr("visible", "false");
     		raycasterShoot();
     	}

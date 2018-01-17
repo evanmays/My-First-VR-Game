@@ -106,9 +106,11 @@ function startGame(iteration) {
     	if (random_boolean) {
     		if (random_boolean_1in20) {
     			showFriendly(i);
+    			hideEnemy(i);
     		}
     		else {
     			showEnemy(i);
+    			hideFriendly(i);
     		}
     	}
     	else {

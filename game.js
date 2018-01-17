@@ -100,7 +100,7 @@ function startGame(iteration) {
 
     random_boolean = Math.random() >= 0.5;
 
-    for(var i = 0; i < 16; i++) {
+    for(var i = 1; i <= 16; i++) {
     	random_boolean = Math.random() >= 0.7;
     	random_boolean_1in20 = Math.random() >= 0.95;
     	if (random_boolean) {

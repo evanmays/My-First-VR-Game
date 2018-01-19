@@ -3,9 +3,10 @@
   <a-assets>
     <img id="enemy1" src="enemy-with-treasure-chest.png">
     <img id="friendly1" src="friendly-with-traffic-cones.png">
+    <audio id="laser" src="laser.mp3"></audio>
   </a-assets>
   <!-- Camera -->
-  <a-entity id="player" look-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 0" look-controls sound="src: url(laser.mp3); on: playLaserSound; poolSize: 2">
+  <a-entity id="player" look-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 0" look-controls sound="src: #laser; on: playLaserSound; poolSize: 2">
     <!-- Heads Up Display -->
     <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
       material="color: red; opacity: 0.5"

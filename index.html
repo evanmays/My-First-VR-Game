@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link rel="stylesheet" href="index.css">
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -7,25 +8,33 @@
     <script src="/game.js"></script>
   </head>
   <body>
-    <h1>World's Hardest VR Game</h1>
-    <h2>by Evan Mays</h2>
-    How many devices do you have to play?
-    <ul>
-      <li onclick="$('.oneDevice').show();">1 Phone</li>
-      <li onclick="$('.multipleDevices').show();">1 Phone, 1 Google Cardboard Headset, and 1 Computer</li>
-    </ul>
-    <div class="multipleDevices" style="display:none">
-      <h2>You Selected 1 phone, 1 Cardboard, and 1 computer</h2>
-      <p>Please open this page on your phone and computer</p>
-      Which device are you currently?
-      <ul >
-        <li onclick="playMultipleDevice('phone')">The phone</li><br>
-        <li onclick="playMultipleDevice('computer')">The computer</li>
-      </ul>
-    </div>
-    <div class="oneDevice" style="display:none">
-      <h2>You Selected 1 phone only</h2>
-      <a onclick="playOneDevice();">Tap here to enter the game.</a>
-    </div>
+    <div class="page">
+      <img class="headerimg" src="White-Void-Logo.jpg" />
+      <h1>White Void: A VR Experience</h1>
+      <h2><a href="https://evanmays.com">by Evan Mays</a></h2>
+      <div class="section">
+        <div class="select">
+          <h2>Getting Started</h2>
+          <p>How many devices do you have to play?</p>
+          <ul>
+            <li onclick="$('.oneDevice').show(); $('.multipleDevices').hide();  $('.select').hide();">1 Phone</li>
+            <li onclick="$('.multipleDevices').show(); $('.oneDevice').hide();  $('.select').hide();">1 Phone, 1 Google Cardboard Headset, and 1 Computer</li>
+          </ul>
+        </div>
+        <div class="multipleDevices" style="display:none">
+          <h2>You Selected 1 phone, 1 Cardboard, and 1 computer</h2>
+          <p>Please open the website you are on right now on your phone and computer</p>
+          <p>Are you viewing this site from your phone or computer?</p>
+          <ul>
+            <li onclick="playMultipleDevice('phone')">The phone</li><br>
+            <li onclick="playMultipleDevice('computer')">The computer</li>
+          </ul>
+        </div>
+        <div class="oneDevice" style="display:none">
+          <h2>You Selected 1 phone only</h2>
+          <a onclick="playOneDevice();">Tap here to enter the game.</a>
+        </div>
+      </div>
+  </div>
   </body>
 </html>

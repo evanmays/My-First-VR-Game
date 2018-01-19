@@ -179,7 +179,7 @@ function raycasterShoot(){
 
 
 
-var socket = io('http://10.170.44.74:3000', {transports: ['websocket']});
+var socket = io('http://10.194.58.191:3000', {transports: ['websocket']});
 
 function initComputerController() {
 	$(window).keypress(function(e) {

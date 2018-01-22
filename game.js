@@ -101,8 +101,16 @@ function startGame(iteration) {
     random_boolean = Math.random() >= 0.5;
 
     for(var i = 1; i <= 16; i++) {
-    	random_boolean = Math.random() >= 0.7;
-    	random_boolean_1in20 = Math.random() >= 0.6;
+    	if (iteration > 12){ //a minute in, make game harder 
+    		random_boolean = Math.random() >= 0.9; //chance there is a character at location
+    	} 
+    	else if (iteration > 6){ //half a minute in, make game harder 
+    		random_boolean = Math.random() >= 0.8; //chance there is a character at location
+    	} 
+    	else {
+    		random_boolean = Math.random() >= 0.7; //chance there is a character at location
+    	}
+    	random_boolean_1in20 = Math.random() >= 0.95; //chance it's a friendly/enemy
     	if (random_boolean) {
     		if (random_boolean_1in20) {
     			showFriendly(i);
@@ -175,7 +183,9 @@ function raycasterShoot(){
 
 
 
+var noSleep = new NoSleep();
 
+noSleep.enable();
 
 
 

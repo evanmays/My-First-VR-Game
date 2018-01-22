@@ -1,4 +1,4 @@
-<a-scene stats>
+<a-scene>
   <!-- Preloading Assets -->
   <a-assets>
     <img id="enemy1" src="enemy-with-treasure-chest.png">
@@ -8,42 +8,52 @@
   <!-- Camera -->
   <a-entity id="player" look-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 0" look-controls sound="src: #laser; on: playLaserSound; poolSize: 2">
     <!-- Heads Up Display -->
-    <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+    <a-entity geometry="primitive: plane; height: 0.05; width: 0.01" position="0 0 -1"
       material="color: red; opacity: 0.5"
       raycaster="objects: .collidable"
       id="crosshair1"
       crosshair
       visible="false">
-        <a-animation attribute="position" begin="show" dur="775" from="0 -.1 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="position" begin="show" dur="775" from="0 -1 -1" to="0 -.025 -1" id="finalcrosshairanimation"></a-animation>
         <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
     </a-entity>
-    <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+    <a-entity geometry="primitive: plane; height: 0.05; width: 0.01" position="0 0 -1"
       material="color: red; opacity: 0.5"
       raycaster="objects: .collidable"
       id="crosshair2"
       crosshair
       visible="false">
-        <a-animation attribute="position" begin="show" dur="775" from="0 .1 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="position" begin="show" dur="775" from="0 1 -1" to="0 .025 -1" id="finalcrosshairanimation"></a-animation>
         <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
     </a-entity>
-    <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+    <a-entity geometry="primitive: plane; height: 0.01; width: 0.05" position="0 0 -1"
       material="color: red; opacity: 0.5"
       raycaster="objects: .collidable"
       id="crosshair3"
       crosshair
       visible="false">
-        <a-animation attribute="position" begin="show" dur="775" from=".1 0 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="position" begin="show" dur="775" from="1 0 -1" to=".025 0 -1" id="finalcrosshairanimation"></a-animation>
         <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
     </a-entity>
-    <a-entity geometry="primitive: plane; height: 0.05; width: 0.05" position="0 0 -1"
+    <a-entity geometry="primitive: plane; height: 0.01; width: 0.05" position="0 0 -1"
       material="color: red; opacity: 0.5"
       raycaster="objects: .collidable"
       id="crosshair4"
       crosshair
       visible="false">
-        <a-animation attribute="position" begin="show" dur="775" from="-.1 0 -1" to="0 0 -1" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="position" begin="show" dur="775" from="-1 0 -1" to="-.025 0 -1" id="finalcrosshairanimation"></a-animation>
         <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
     </a-entity>
+    <a-ring radius-inner=".06" radius-outer=".07" position="0 0 -1"
+      material="color: red; opacity: 0.5"
+      raycaster="objects: .collidable"
+      id="crosshair5"
+      crosshair
+      visible="false">
+        <a-animation attribute="radius-inner" begin="show" dur="775" from=".3" to=".06" id="finalcrosshairanimation"></a-animation>
+        <a-animation attribute="radius-outer" begin="show" dur="775" from=".3" to=".07"></a-animation>
+        <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
+    </a-ring>
   </a-entity>
 
   <!-- Room -->

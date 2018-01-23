@@ -4,6 +4,7 @@
     <img id="enemy1" src="enemy-with-treasure-chest.png">
     <img id="friendly1" src="friendly-with-traffic-cones.png">
     <audio id="laser" src="laser.mp3"></audio>
+    <audio id="music" src="background-music.mp3"></audio>
   </a-assets>
   <!-- Camera -->
   <a-entity id="player" look-controls position="1 0 0" rotation="0 -90 0" fly="true" wsAxis="z" camera="userHeight: 0" look-controls sound="src: #laser; on: playLaserSound; poolSize: 2">
@@ -44,7 +45,7 @@
         <a-animation attribute="position" begin="show" dur="775" from="-1 0 -1" to="-.025 0 -1" id="finalcrosshairanimation"></a-animation>
         <a-animation attribute="visible" begin="show" dur="200" to="true"></a-animation>
     </a-entity>
-    <a-ring radius-inner=".06" radius-outer=".07" position="0 0 -1"
+    <a-ring radius-inner=".3" radius-outer=".3" position="0 0 -1"
       material="color: red; opacity: 0.5"
       raycaster="objects: .collidable"
       id="crosshair5"
@@ -86,7 +87,7 @@
 
   <!-- Scoreboard -->
   <a-plane id="scoreboard" position="2.75 2 0" rotation="20 -90 0" width="1.572" height=".908" color="blue">
-    <a-text value="Press Spacebar\nto Start!\nFriendly Hits: 0\nGood hits: 0" align="center" height="20"></a-text>
+    <a-text value="Press Spacebar\nto Start!\nPoints: 0\nTime left: 60" align="center" height="20"></a-text>
     <a-animation attribute="position" begin="show" dur="800" to="2.75 2 0"></a-animation>
     <a-animation attribute="rotation" begin="show" dur="800" to="20 -90 0"></a-animation>
     <a-animation attribute="position" begin="hide" dur="800" to="2 2 -3"></a-animation>

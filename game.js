@@ -29,9 +29,14 @@ score = {
 	enemies: 0
 }
 
-function addToScoreboard(section, points) {
-	score[section] += points;
-	$("#scoreboard a-text").attr("value", "Friendly Hits: "+score.friendlies+"\nGood hits: "+score.enemies);
+function updateScoreboard(section, points) {
+	if (section == "friendlies") {
+		timeleft -= 10 * points;
+	}
+	else {
+		score["enemies"] += points;
+	}
+	$("#scoreboard a-text").attr("value", "Points: "+score.enemies+"\nTime left: "+timeleft);
 }
 
 started = false;
@@ -92,48 +97,65 @@ function shootButtonPressed() {
 var random_boolean;
 var random_boolean_1in20;
 
+timeleft = 62;
+
 function startGame(iteration) {
+	timeleft -= 1;
 	if (iteration == 0) {
 		hideScoreboard();
+		updateScoreboard("enemies", 0);
 	}
-    //Display all the friendlies/enemies for this iteration
+	if (timeleft == 0) {
+		//game done
+		//calculate score and display stats
+		showScoreboard();
+		updateScoreboard("enemies", 0);
+	}
+	else if (timeleft < 0) {
+		//do nothing
+	}
+	else if (iteration%5 == 0) {
+		updateScoreboard("enemies", 0);
+	    //Display all the friendlies/enemies for this iteration
+		random_boolean = Math.random() >= 0.5;
 
-    random_boolean = Math.random() >= 0.5;
+	    for(var i = 1; i <= 16; i++) {
+	    	if (iteration/5 > 12){ //a minute in, make game harder 
+	    		random_boolean = Math.random() >= 0.9; //chance there is a character at location
+	    	} 
+	    	else if (iteration/5 > 6){ //half a minute in, make game harder 
+	    		random_boolean = Math.random() >= 0.8; //chance there is a character at location
+	    	} 
+	    	else {
+	    		random_boolean = Math.random() >= 0.7; //chance there is a character at location
+	    	}
+	    	random_boolean_1in20 = Math.random() >= 0.95; //chance it's a friendly/enemy
+	    	if (random_boolean) {
+	    		if (random_boolean_1in20) {
+	    			showFriendly(i);
+	    			hideEnemy(i);
+	    		}
+	    		else {
+	    			showEnemy(i);
+	    			hideFriendly(i);
+	    		}
+	    	}
+	    	else {
+	    		hideFriendly(i);
+	    		hideEnemy(i);
+	    	}
+	    }
 
-    for(var i = 1; i <= 16; i++) {
-    	if (iteration > 12){ //a minute in, make game harder 
-    		random_boolean = Math.random() >= 0.9; //chance there is a character at location
-    	} 
-    	else if (iteration > 6){ //half a minute in, make game harder 
-    		random_boolean = Math.random() >= 0.8; //chance there is a character at location
-    	} 
-    	else {
-    		random_boolean = Math.random() >= 0.7; //chance there is a character at location
-    	}
-    	random_boolean_1in20 = Math.random() >= 0.95; //chance it's a friendly/enemy
-    	if (random_boolean) {
-    		if (random_boolean_1in20) {
-    			showFriendly(i);
-    			hideEnemy(i);
-    		}
-    		else {
-    			showEnemy(i);
-    			hideFriendly(i);
-    		}
-    	}
-    	else {
-    		hideFriendly(i);
-    		hideEnemy(i);
-    	}
-    }
-
-    //Set friendlies/enemies as raycastable
-    var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
-    raycasterEl.components.raycaster.refreshObjects();
-
+	    //Set friendlies/enemies as raycastable
+	    var raycasterEl = AFRAME.scenes[0].querySelector('[raycaster]');
+	    raycasterEl.components.raycaster.refreshObjects();
+	}
+	else {
+		updateScoreboard("enemies", 0);
+	}
     setTimeout(function() {
         startGame(iteration+1);
-    }, 5000);
+    }, 1000);
 }
 
 
@@ -171,10 +193,10 @@ function raycasterShoot(){
 		$(firstintersection).removeClass("collidable");
 
 		if($(firstintersection).hasClass("friendly")){
-			addToScoreboard("friendlies", 1);
+			updateScoreboard("friendlies", 1);
 		}
 		else if ($(firstintersection).hasClass("enemy")){
-			addToScoreboard("enemies", 1);
+			updateScoreboard("enemies", 1);
 		}
 	}
 	else {
@@ -184,20 +206,21 @@ function raycasterShoot(){
 
 
 
-var noSleep = new NoSleep();
+var socket = io('http://10.170.44.74:3000', {transports: ['websocket']}); //IP
 
-noSleep.enable();
-
-
-
-var socket = io('http://10.194.58.191:3000', {transports: ['websocket']});
-
+gameHasstarted = false;
 function initComputerController() {
 	$(window).keypress(function(e) {
 		if (e.keyCode == 32) {
+			if (!gameHasstarted) {
+				var audio = new Audio('background-music.mp3');
+				audio.play();
+				gameHasstarted = true;
+			}
 			socket.emit('computerShoot');
 			var audio = new Audio('laser.mp3');
 			audio.play();
+
 		}
 	});
 	

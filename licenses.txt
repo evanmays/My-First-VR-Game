@@ -5,3 +5,5 @@ http://soundbible.com/1771-Laser-Cannon.html
 
 crate.jpg, wall.jpg, floor.jpg, ceiling.jpg
 http://imgarcade.com
+
+Background music licensed for testing only from THEQLON at https://licensing.jamendo.com/en/track/1481938/future-bass-music

@@ -163,14 +163,17 @@
   </a-entity>
 
   <!-- Drones -->
-  <a-box id="box17" class="collidable" color="" position="6.5 2.7 6" depth=".4" height=".1" width=".4">
-    <a-animation attribute="position" begin="fly" dur="12000" from="6.5 2.7 6" to="6.5 2.7 -6" easing="linear">
-  </a-box>
-  <a-box id="box18" class="collidable" color="" position="8.2 2.8 -6" depth=".4" height=".1" width=".4">
-    <a-animation attribute="position" begin="fly" dur="12000" from="8.2 2.8 -6" to="8.2 2.8 6" easing="linear">
-  </a-box>
-  <a-box id="box19" class="collidable" color="" position="3 2.9 6" depth=".4" height=".1" width=".4">
-    <a-animation attribute="position" begin="fly" dur="12000" from="3 2.9 6" to="3 2.9 -6" easing="linear">
-  </a-box>
+  <a-plane id="box17" class="enemy" class="collidable enemy drone" position="7.25 1.15 -6" material="shader: flat; color: white; alphaTest: 0.5" src="#enemy2" rotation="0 -90 0" width="1.62" height="2.1" visible="true">
+    <a-animation attribute="position" begin="fly" dur="12000" from="6.5 1.15 -6" to="6.5 1.15 6" easing="linear">
+    <a-animation attribute="visible" begin="hide" dur="1" from="true" to="false" easing="linear">
+  </a-plane>
+  <a-plane id="box18" class="enemy" class="collidable enemy drone" position="8.2 1.15 -6" material="shader: flat; color: white; alphaTest: 0.5" src="#enemy2" rotation="0 -90 0" width="1.62" height="2.1" visible="true">
+    <a-animation attribute="position" begin="fly" dur="12000" from="8.2 1.15 -6" to="6.5 1.15 6" easing="linear">
+    <a-animation attribute="visible" begin="hide" dur="1" from="true" to="false" easing="linear">
+  </a-plane>
+  <a-plane id="box19" class="enemy" class="collidable friendly drone" position="3 1.15 -6" material="shader: flat; color: white; alphaTest: 0.5" src="#friendly2" rotation="0 -90 0" width=".795" height="2.1" visible="true">
+    <a-animation attribute="position" begin="fly" dur="12000" from="3 1.15 -6" to="3 1.15 6" easing="linear">
+    <a-animation attribute="visible" begin="hide" dur="1" from="true" to="false" easing="linear">
+  </a-animation>
 
 </a-scene>
